@@ -180,3 +180,4 @@ _complete_hosts () {
 complete -F _complete_hosts ssh
 complete -F _complete_hosts host
 
+export PATH=$PATH:/hom/inf3151/tools/bin 
