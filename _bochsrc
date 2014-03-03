@@ -17,8 +17,8 @@
 ################################################################
 
 # BIOS and VGABIOS images
-romimage:    file=/hom/inf3151/tools/bochs/Seabios.bin
-vgaromimage: file=/hom/inf3151/tools/bochs/VGABIOS-lgpl-latest
+romimage:    file=/home/fjogen/opt/bochs/Seabios.bin
+vgaromimage: file=/home/fjogen/opt/bochs/VGABIOS-lgpl-latest
 
 # Use UHCI standard to access USB 
 plugin_ctrl: usb_uhci=1, serial=1

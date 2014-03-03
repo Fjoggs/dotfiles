@@ -185,5 +185,5 @@ export M2=$M2_HOME/bin
 
 export PATH="/home/fjogen/opt/maude:/home/fjogen/opt/intelliJ/bin:$M2:$PATH"
 
-=======
+# BOCHS Related paths
 export PATH=$PATH:/hom/inf3151/tools/bin 
