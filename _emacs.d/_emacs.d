@@ -1,1 +1,1 @@
-/ifi/bifrost/m00/vegardfj/opt/dotfiles/_emacs.d
+/home/fjogen/opt/dotfiles/_emacs.d
