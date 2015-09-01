@@ -25,3 +25,7 @@ fi
 
 PATH="/home/sfj/src/qa/trunk/testTNG:$PATH"
 export PYTHONPATH="/home/sfj/src/qa/trunk/testTNG/testTNG:$PYTHONPATH"
+
+# Webstorm Path Variable
+
+export PATH="$PATH:/home/vegfjogs/opt/webstorm/bin"
