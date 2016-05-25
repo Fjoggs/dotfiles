@@ -180,3 +180,23 @@ _complete_hosts () {
 
 complete -F _complete_hosts ssh
 complete -F _complete_hosts host
+
+# Android Studio
+export AS=/home/fjogen/opt/android-studio/bin
+
+# Maven
+export M2_HOME=/home/fjogen/opt/maven
+export M2=$M2_HOME/bin
+
+# Maude
+export MAUDE=/home/fjogen/opt/maude
+
+# IntelliJ
+export INTELLIJ=/home/fjogen/opt/intelliJ/bin
+
+# Android Home
+export ANDROID_SDK=/home/fjogen/opt/android/sdk/tools
+export APT=/home/fjogen/opt/android/sdk/tools/platform-tools
+
+# PATH
+export PATH=$ANDROID_SDK:$APT:$AS:$M2_HOME:$M2:$MAUDE:$INTELLIJ:$PATH
