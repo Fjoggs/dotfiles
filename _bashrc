@@ -195,8 +195,9 @@ export MAUDE=/home/fjogen/opt/maude
 export INTELLIJ=/home/fjogen/opt/intelliJ/bin
 
 # Android Home
-export ANDROID_SDK=/home/fjogen/opt/android/sdk/tools
-export APT=/home/fjogen/opt/android/sdk/tools/platform-tools
+export ANDROID_HOME=/home/fjogen/opt/android/sdk
+export AT=$ANDROID_HOME/tools
+export APT=$ANDROID_HOME/platform-tools
 
 # PATH
-export PATH=$ANDROID_SDK:$APT:$AS:$M2_HOME:$M2:$MAUDE:$INTELLIJ:$PATH
+export PATH=$ANDROID_HOME:$APT:$AS:$M2_HOME:$M2:$MAUDE:$INTELLIJ:$PATH
