@@ -1,1 +1,0 @@
-/home/fjogen/opt/dotfiles/_emacs.d
