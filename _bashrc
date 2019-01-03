@@ -188,7 +188,6 @@ export AS=/home/fjogen/opt/android-studio/bin
 export MAVEN_HOME=/home/fjogen/opt/maven
 export MAVEN=$MAVEN_HOME/bin
 
-
 # IntelliJ
 export INTELLIJ=/home/fjogen/opt/intelliJ/bin
 
@@ -206,7 +205,6 @@ export BIN=/home/fjogen/bin
 
 # PATH
 export PATH=$JAVA:$JAVA_HOME:$ANDROID_HOME:$APT:$AT:$AS:$MAVEN_HOME:$MAVEN:$MAUDE:$INTELLIJ:$BIN:$PATH
-
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
