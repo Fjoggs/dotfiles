@@ -199,8 +199,16 @@ export ANDROID_HOME=/home/fjogen/opt/android/sdk
 export AT=$ANDROID_HOME/tools
 export APT=$ANDROID_HOME/platform-tools
 
+# Java
+export JAVA_HOME=/home/fjogen/opt/java/jdk-10.0.2
+export JAVA=/home/fjogen/opt/java/jdk-10.0.2/bin
+
+# Local bin folder
+export BIN=/home/fjogen/bin
+
 # PATH
-export PATH=$ANDROID_HOME:$APT:$AS:$M2_HOME:$M2:$MAUDE:$INTELLIJ:$PATH
+export PATH=$JAVA:$JAVA_HOME:$ANDROID_HOME:$APT:$AS:$M2_HOME:$M2:$MAUDE:$INTELLIJ:$BIN:$PATH
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
