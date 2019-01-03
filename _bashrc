@@ -185,11 +185,9 @@ complete -F _complete_hosts host
 export AS=/home/fjogen/opt/android-studio/bin
 
 # Maven
-export M2_HOME=/home/fjogen/opt/maven
-export M2=$M2_HOME/bin
+export MAVEN_HOME=/home/fjogen/opt/maven
+export MAVEN=$MAVEN_HOME/bin
 
-# Maude
-export MAUDE=/home/fjogen/opt/maude
 
 # IntelliJ
 export INTELLIJ=/home/fjogen/opt/intelliJ/bin
@@ -207,7 +205,7 @@ export JAVA=/home/fjogen/opt/java/jdk-10.0.2/bin
 export BIN=/home/fjogen/bin
 
 # PATH
-export PATH=$JAVA:$JAVA_HOME:$ANDROID_HOME:$APT:$AS:$M2_HOME:$M2:$MAUDE:$INTELLIJ:$BIN:$PATH
+export PATH=$JAVA:$JAVA_HOME:$ANDROID_HOME:$APT:$AT:$AS:$MAVEN_HOME:$MAVEN:$MAUDE:$INTELLIJ:$BIN:$PATH
 
 
 export NVM_DIR="$HOME/.nvm"
