@@ -203,8 +203,12 @@ export JAVA=/home/fjogen/opt/java/jdk-10.0.2/bin
 # Local bin folder
 export BIN=/home/fjogen/bin
 
+# Go
+export GOPATH=/home/fjogen/go
+export GO=$GOPATH/bin
+
 # PATH
-export PATH=$JAVA:$JAVA_HOME:$ANDROID_HOME:$APT:$AT:$AS:$MAVEN_HOME:$MAVEN:$MAUDE:$INTELLIJ:$BIN:$PATH
+export PATH=$JAVA:$JAVA_HOME:$ANDROID_HOME:$APT:$AT:$AS:$MAVEN_HOME:$MAVEN:$MAUDE:$INTELLIJ:$BIN:$GO:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
