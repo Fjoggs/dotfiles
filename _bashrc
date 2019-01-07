@@ -182,29 +182,29 @@ complete -F _complete_hosts ssh
 complete -F _complete_hosts host
 
 # Android Studio
-export AS=/home/fjogen/opt/android-studio/bin
+export AS=$HOME/opt/android-studio/bin
 
 # Maven
-export MAVEN_HOME=/home/fjogen/opt/maven
+export MAVEN_HOME=$HOME/opt/maven
 export MAVEN=$MAVEN_HOME/bin
 
 # IntelliJ
-export INTELLIJ=/home/fjogen/opt/intelliJ/bin
+export INTELLIJ=$HOME/opt/intelliJ/bin
 
 # Android Home
-export ANDROID_HOME=/home/fjogen/opt/android/sdk
+export ANDROID_HOME=$HOME/opt/android/sdk
 export AT=$ANDROID_HOME/tools
 export APT=$ANDROID_HOME/platform-tools
 
 # Java
-export JAVA_HOME=/home/fjogen/opt/java/jdk-10.0.2
-export JAVA=/home/fjogen/opt/java/jdk-10.0.2/bin
+export JAVA_HOME=$HOME/opt/java/jdk-10.0.2
+export JAVA=$HOME/opt/java/jdk-10.0.2/bin
 
 # Local bin folder
-export BIN=/home/fjogen/bin
+export BIN=$HOME/bin
 
 # Go
-export GOPATH=/home/fjogen/go
+export GOPATH=$HOME/go
 export GO=$GOPATH/bin
 
 # PATH
