@@ -208,7 +208,7 @@ export GOPATH=/home/fjogen/go
 export GO=$GOPATH/bin
 
 # PATH
-export PATH=$JAVA:$JAVA_HOME:$ANDROID_HOME:$APT:$AT:$AS:$MAVEN_HOME:$MAVEN:$MAUDE:$INTELLIJ:$BIN:$GO:$PATH
+export PATH=$JAVA:$JAVA_HOME:$ANDROID_HOME:$APT:$AT:$AS:$MAVEN_HOME:$MAVEN:$INTELLIJ:$BIN:$GO:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

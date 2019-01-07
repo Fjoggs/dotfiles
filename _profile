@@ -22,15 +22,3 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-
-PATH="/home/sfj/src/qa/trunk/testTNG:$PATH"
-export PYTHONPATH="/home/sfj/src/qa/trunk/testTNG/testTNG:$PYTHONPATH"
-
-# Webstorm Path Variable
-
-export PATH="$PATH:/home/vegfjogs/opt/webstorm/bin"
-export PATH="$PATH:/home/vegfjogs/opt/intelliJ/bin"
-export PATH="$PATH:/home/vegfjogs/opt/android-studio/bin"
-export PATH="$PATH:/home/vegfjogs/opt/maven/bin/"
-
-export MAVEN_OPTS="-Xms256m -Xmx512m"
