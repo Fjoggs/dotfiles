@@ -1,2 +1,2 @@
 alias kdev='kubectl --context="dev-sol-osl01"'
-alias kprod='kubectl --conext="prod1"'
+alias kprod='kubectl --context="prod1"'
