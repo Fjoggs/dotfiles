@@ -198,8 +198,8 @@ export AT=$ANDROID_HOME/tools
 export APT=$ANDROID_HOME/platform-tools
 
 # Java
-export JAVA_HOME=$HOME/opt/java/jdk-11.0.1
-export JAVA=$HOME/opt/java/jdk-11.0.1/bin
+export JAVA_HOME=$HOME/opt/java/jdk-11.0.2
+export JAVA=$HOME/opt/java/jdk-11.0.2/bin
 
 # Local bin folder
 export BIN=$HOME/bin
