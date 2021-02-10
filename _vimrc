@@ -46,6 +46,9 @@
 " MakeGreen
 "    Generic test runner that works with nose
 "
+" Plug
+"   Plugin installer
+"
 " ==========================================================
 " Shortcuts
 " ==========================================================
@@ -54,6 +57,16 @@ let mapleader=","             " change the leader to be a comma vs slash
 
 " Seriously, guys. It's not like :W is bound to anything anyway.
 command! W :w
+
+" Plug plugin installer section"
+call plug#begin('~/.vim/plugged')
+
+Plug 'sainnhe/vim-color-forest-night'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
+" End plug section'
 
 fu! SplitScroll()
     :wincmd v
@@ -239,7 +252,7 @@ if has("gui_running")
     set guioptions-=T
 endif
 
-colorscheme molokai
+colorscheme forest-night
 
 " Paste from clipboard
 map <leader>p "+p
@@ -316,3 +329,9 @@ let g:BASH_AuthorName	= 'Vegard Fjogstad'
 let g:BASH_email	= 'vegard@fjobeno.com'
 let g:BASH_Company	= 'N/A'
 
+" For Vim 7.4.1799 or later
+if has('termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
