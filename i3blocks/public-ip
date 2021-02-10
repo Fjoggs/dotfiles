@@ -1,0 +1,6 @@
+IP=$(eval curl ifconfig.me)
+if [[ ${#IP} -ge 15 ]]; then
+    echo "N/A"
+else   
+    echo ${IP}
+fi
