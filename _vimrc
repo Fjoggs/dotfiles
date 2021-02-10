@@ -313,6 +313,6 @@ endif
 " =============================================
 " Header information
 let g:BASH_AuthorName	= 'Vegard Fjogstad'
-let g:BASH_email	= 'fjoggis@gmail.com'
+let g:BASH_email	= 'vegard@fjobeno.com'
 let g:BASH_Company	= 'N/A'
 
