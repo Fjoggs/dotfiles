@@ -1,0 +1,10 @@
+alias docompose-local="docker-compose -f docker-compose.yaml -f docker-compose.local.yaml up"
+alias cypress-docker="docker-compose -f docker-compose.cypress.yaml up --exit-code-from cypress"
+alias docker-kill-all="docker rm -f $(docker ps -aq)"
+alias la="ls -al"
+
+alias sumo="mpv rtmps://rtmps.sleeperop.com:1935/live/sumo"
+alias viasport="mpv rtmps://rtmps.sleeperop.com:1935/live/vs"
+
+alias psdocker="docker ps --format \"table {{.Names}}\t{{.Status}}\t{{.Ports}}\""
+
