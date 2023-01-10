@@ -16,7 +16,8 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-export PS1="\[\033[38;5;155m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;208m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\] \w \[$(tput sgr0)\]\[\033[38;5;155m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+export PS1="\[$(tput bold)\]\[\033[38;5;45m\]\u\[$(tput sgr0)\]\[\033[38;5;221m\]@\[$(tput sgr0)\]\[\033[38;5;156m\]\h\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;45m\]\w\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;221m\]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
+#export PS1="\[\033[38;5;155m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;208m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\] \w \[$(tput sgr0)\]\[\033[38;5;155m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 #export PS1="\[\033[38;5;201m\]\u\[$(tput sgr0)\]\[\033[38;5;171m\]@\[$(tput sgr0)\]\[\033[38;5;090m\]\h\[$(tput sgr0)\]\[\033[38;5;171m\] \w \[$(tput sgr0)\]\[\033[38;5;201m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
 # Set up TERM variables.
@@ -102,12 +103,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
 # Set $TERM for libvte terminals that set $TERM wrong (like gnome-terminal)
 {
   [ "_$TERM" = "_xterm" ] && type ldd && type grep && type tput && [ -L "/proc/$PPID/exe" ] && {
@@ -122,14 +117,6 @@ fi
     fi
   }
 } >/dev/null 2>/dev/null
-
-venwrap=`type -P virtualenvwrapper.sh`
-if [ "$venwrap" != "" ]; then
-    source $venwrap
-fi
-
-PYTHONSTARTUP=~/.pythonrc.py
-export PYTHONSTARTUP
 
 parse_git_branch ()
 {
@@ -149,47 +136,16 @@ set -o vi
 # Add git and svn branch names
 export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch) "
 
-# /etc/profile.d/complete-hosts.sh
-# Autocomplete Hostnames for SSH etc.
-# by Jean-Sebastien Morisset (http://surniaulula.com/)
-_complete_hosts () {
-    COMPREPLY=()
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    host_list=`{ 
-        for c in /etc/ssh_config /etc/ssh/ssh_config ~/.ssh/config
-        do [ -r $c ] && sed -n -e 's/^Host[[:space:]]//p' -e 's/^[[:space:]]*HostName[[:space:]]//p' $c
-        done
-        for k in /etc/ssh_known_hosts /etc/ssh/ssh_known_hosts ~/.ssh/known_hosts
-        do [ -r $k ] && egrep -v '^[#\[]' $k|cut -f 1 -d ' '|sed -e 's/[,:].*//g'
-        done
-        sed -n -e 's/^[0-9][0-9\.]*//p' /etc/hosts; }|tr ' ' '\n'|grep -v '*'`
-    COMPREPLY=( $(compgen -W "${host_list}" -- $cur))
-    return 0
-}
-
-complete -F _complete_hosts ssh
-complete -F _complete_hosts host
-
 # Local bin folder
 export BIN=$HOME/bin
 
-# Go
-export GOPATH=$HOME/go
-export GO=$GOPATH/bin
-
 # PATH
-export PATH=$JAVA:$JAVA_HOME:$ANDROID_HOME:$APT:$AT:$AS:$MAVEN_HOME:$MAVEN:$INTELLIJ:$BIN:$GO:$PATH
+export PATH=$BIN:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export EDITOR=vim
-
-# Import colorscheme from 'wal' asynchronously
-# &   # Run the process in the background.
-# ( ) # Hide shell job control messages.
-# (cat ~/.cache/wal/sequences &)
-
 . "$HOME/.cargo/env"
 

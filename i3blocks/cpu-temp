@@ -1,2 +1,0 @@
-#!/bin/bash -
-sensors | awk '/^CPUTIN:/ {print $2}'

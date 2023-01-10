@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/fjogen/opt/nginx/services-enabled'
-let g:netrw_dirhist_2='/home/fjogen/body.json'
-let g:netrw_dirhist_3='/home/fjogen/.config/i3'
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/fjogen/opt/dotfiles/i3blocks'
+let g:netrw_dirhist_2='/home/fjogen/opt/dotfiles/_vim'
+let g:netrw_dirhist_1='/home/fjogen/.config/pipewire/client.conf.d'
