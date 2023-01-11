@@ -28,7 +28,8 @@ set $mod Mod4
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:Roboto-Regular 11
-font pango:Inconsolata, Icons 12
+#font pango:Inconsolata, Icons 12
+font pango:Jetbrains Mono Bold 10
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -41,7 +42,7 @@ font pango:Inconsolata, Icons 12
 floating_modifier $mod
 
 # start a terminal
- bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec alacritty
 
 # kill focused window
@@ -225,7 +226,8 @@ bindsym $mod+r mode "resize"
 
 # Colors
 set $bg-color               #2f343f
-set $active-bg-color        #eca145
+#set $active-bg-color        #eca145
+set $active-bg-color        #eff2a7
 set $inactive-bg-color      #2f343f
 set $text-color             #f3f4f5
 set $inactive-text-color    #676E7D
@@ -237,12 +239,12 @@ set $active-workspace-font  #2f343f
 
 # Window colors
 #                       border              background          text                 indicator
-client.focused          $bg-color           $active-bg-color    $text-color          $indicator-color
+client.focused          $active-bg-color    $active-bg-color    $bg-color            $indicator-color
 client.unfocused        $inactive-bg-color  $inactive-bg-color  $inactive-text-color $indicator-color
 client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-color $indicator-color
 client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color          $indicator-color
 
-# hide_edge_borders both
+#hide_edge_borders both
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -258,11 +260,8 @@ bar {
             separator #757575
 
             #                  border             background         text
-            #focused_workspace  $bg-color          $bg-color          $text-color
             focused_workspace  $bg-color          $active-workspace   $active-workspace-font
-            #inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
             inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-            #urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
             urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
     }
 }
@@ -316,6 +315,14 @@ bindsym $mod+Shift+s sticky toggle
 
 # character map
 bindsym $mod+Shift+F12 exec gnome-characters
+
+# Assign
+assign [class="discord"] 6
+assign [class="element"] 6
+
+assign [class="keepassxc"] 9
+assign [class="seahorse"] 9
+assign [class="NoiseTorch"] 9
 
 # Auto run stuff
 #exec_always feh --bg-scale ~/pictures/4k-wallpaper-astrology-astronomy-1494208.jpg
