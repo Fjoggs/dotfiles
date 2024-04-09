@@ -33,3 +33,13 @@
 	pr = pull --rebase --autostash
 [init]
 	defaultBranch = main
+
+[includeIf "gitdir:~/projects/dnb/"]
+	path = ~/projects/dnb/.gitconfig
+
+[includeIf "gitdir:~/projects/noria/"]
+	path = ~/projects/noria/.gitconfig
+[rerere]
+	enabled = true
+[maintenance]
+	repo = /Users/fjogen/projects/dnb/portal-backend
