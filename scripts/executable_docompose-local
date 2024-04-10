@@ -1,0 +1,8 @@
+CWD=$(pwd)
+FILE=$CWD/docker-compose.local.yaml
+if [[ -f "$FILE" ]]; then
+    docker-compose -f docker-compose.yaml -f docker-compose.local.yaml up
+else
+    docker-compose up
+fi
+
