@@ -1,0 +1,10 @@
+live_config_reload = true
+
+[window]
+dynamic_title = true
+
+[font]
+size = 9
+
+[selection]
+save_to_clipboard = true
