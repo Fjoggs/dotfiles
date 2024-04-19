@@ -66,6 +66,10 @@ return {
 
 				opts.desc = "Restart LSP"
 				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+				local api = require("Comment.api")
+				opts.desc = "Toggle comment on line"
+				keymap.set("n", "<C-/>", api.toggle.linewise.current, opts) -- mapping to restart lsp if necessary
 			end,
 		})
 
