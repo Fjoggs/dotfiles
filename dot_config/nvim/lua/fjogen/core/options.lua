@@ -13,26 +13,22 @@ opt.autoindent = true
 
 opt.wrap = false
 
-
 --search settings
 opt.ignorecase = true
 opt.smartcase = true
 
 opt.cursorline = false
 
-
 -- colors
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 
-
 -- backspace
 opt.backspace = "indent,eol,start"
 
 -- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
-
+-- opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 -- split windows
 opt.splitright = true
