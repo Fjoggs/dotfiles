@@ -50,5 +50,18 @@ return {
 		keymap.set("n", "<C-F12>", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "Find symbols in document" })
 		-- <F36> = CTRL+F12
 		keymap.set("n", "<F36>", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "Find symbols in document" })
+
+		keymap.set(
+			"n",
+			"<C-S-F12",
+			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+			{ desc = "Find symbols in workspace" }
+		)
+		keymap.set(
+			"n",
+			"<F48>",
+			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+			{ desc = "Find symbols in workspace" }
+		)
 	end,
 }
