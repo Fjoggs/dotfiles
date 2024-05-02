@@ -4,6 +4,32 @@ return {
 		require("dap.ext.vscode").load_launchjs()
 		require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
 
+		vim.api.nvim_set_hl(0, "blue", { fg = "#3d59a1" })
+		vim.api.nvim_set_hl(0, "green", { fg = "#9ece6a" })
+		vim.api.nvim_set_hl(0, "yellow", { fg = "#FFFF00" })
+		vim.api.nvim_set_hl(0, "orange", { fg = "#f09000" })
+
+		vim.fn.sign_define(
+			"DapBreakpoint",
+			{ text = "B", texthl = "blue", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+		)
+		vim.fn.sign_define(
+			"DapBreakpointCondition",
+			{ text = "BC", texthl = "blue", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+		)
+		vim.fn.sign_define(
+			"DapBreakpointRejected",
+			{ text = "R", texthl = "orange", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+		)
+		vim.fn.sign_define(
+			"DapStopped",
+			{ text = "S", texthl = "green", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+		)
+		vim.fn.sign_define(
+			"DapLogPoint",
+			{ text = "L", texthl = "yellow", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+		)
+
 		local keymap = vim.keymap
 
 		keymap.set("n", "<F5>", function()

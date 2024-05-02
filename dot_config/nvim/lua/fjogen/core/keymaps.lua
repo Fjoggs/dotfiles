@@ -1,5 +1,4 @@
 --vim.g.mapleader = " "
-
 local keymap = vim.keymap
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
@@ -24,3 +23,11 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 -- scroll with center screen
 keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Go half a page down and center the screen" })
 keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Go half a page up and center the screen" })
+
+-- run test
+keymap.set(
+	"n",
+	"<leader>rt",
+	"<esc>:r!/home/fjogen/projects/dnb/remote/portal-backend/scripts/run-test.sh tests.handler.vitec.test_create_portal.TestCreatePortal.test_create_new_portal_samsolgt_missing_attributes<enter>",
+	{ desc = "Run python unittest" }
+)

@@ -43,6 +43,7 @@ return {
 
 				opts.desc = "See available code actions"
 				keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+				keymap.set({ "n", "v" }, "<M-CR>", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
 				opts.desc = "Smart rename"
 				keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
@@ -70,6 +71,17 @@ return {
 				local api = require("Comment.api")
 				opts.desc = "Toggle comment on line"
 				keymap.set("n", "<C-/>", api.toggle.linewise.current, opts) -- mapping to restart lsp if necessary
+
+				RuffOrganizeImports = function()
+					vim.lsp.buf.code_action({
+						context = {
+							only = { "source.organizeImports.ruff" },
+						},
+						apply = true,
+					})
+				end
+				opts.desc = "Organize imports with ruff"
+				keymap.set("n", "<C-S-O>", RuffOrganizeImports, opts)
 			end,
 		})
 
