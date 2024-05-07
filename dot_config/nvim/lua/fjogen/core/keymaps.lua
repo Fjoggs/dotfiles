@@ -47,3 +47,77 @@ wk.register({
 		d = { ":Telescope git_bcommits<CR>", "Open git history for active buffer" },
 	},
 }, { prefix = "<leader>" })
+
+-- Session management
+wk.register({
+	w = {
+		name = "Sessions management",
+		r = { "<cmd>SessionRestore<CR>", "Restore session for cwd" },
+		s = { "<cmd>SessionSave<CR>", "Save session for cwd" },
+	},
+}, { prefix = "<leader>" })
+
+-- Debugger
+
+local dap = require("dap")
+local dap_ui_widgets = require("dap.ui.widgets")
+
+keymap.set("n", "<F5>", function()
+	dap.continue()
+end)
+keymap.set("n", "<F8>", function()
+	dap.step_over()
+end)
+keymap.set("n", "<F7>", function()
+	dap.step_into()
+end)
+keymap.set("n", "<F12>", function()
+	dap.step_out()
+end)
+keymap.set("n", "<Leader>b", function()
+	dap.toggle_breakpoint()
+end)
+keymap.set("n", "<Leader>B", function()
+	dap.set_breakpoint()
+end)
+keymap.set("n", "<Leader>lp", function()
+	dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+end)
+
+wk.register({
+	d = {
+		name = "Debugger",
+		r = { ":DapToggleRepl<CR>", "Toggles the DAP repl" },
+		l = {
+			function()
+				dap.run_last()
+			end,
+			"Run last DAP",
+		},
+		h = {
+			function()
+				dap_ui_widgets.hover()
+			end,
+			"Show DAP hover widget",
+		},
+		p = {
+			function()
+				dap_ui_widgets.preview()
+			end,
+			"Show DAP preview widget",
+		},
+		f = {
+			function()
+				dap_ui_widgets.centered_float(dap_ui_widgets.frames)
+			end,
+			"Centered float DAP frames",
+		},
+		s = {
+			function()
+				local widgets = dap_ui_widgets
+				widgets.centered_float(widgets.scopes)
+			end,
+			"Centered float DAP scopes",
+		},
+	},
+}, { prefix = "<leader>" })
