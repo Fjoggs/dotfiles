@@ -3,9 +3,6 @@ return {
 	branch = "0.2.x",
 	config = function()
 		require("telescope").load_extension("smart_open")
-		vim.keymap.set("n", "<C-n>", function()
-			require("telescope").extensions.smart_open.smart_open()
-		end, { noremap = true, silent = true })
 	end,
 	dependencies = {
 		"kkharji/sqlite.lua",

@@ -16,15 +16,41 @@ keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Go half a page up and center the s
 -- auto-save.nvim
 keymap.set("n", "<leader>as", ":ASToggle<CR>", { desc = "Toggles auto save function" })
 
+-- save with ctrl+s
+keymap.set({ "n", "i" }, "<C-s>", "<esc>:write<CR>", { desc = "Save current buffer" })
+
+-- flash
+local flash = require("flash")
+keymap.set({ "n", "x", "o" }, "s", function()
+	flash.jump()
+end, { desc = "Flash" })
+
+keymap.set({ "n", "x", "o" }, "S", function()
+	flash.treesitter()
+end, { desc = "Flash Treesitter" })
+
+keymap.set("o", "r", function()
+	flash.remote()
+end, { desc = "Remote Flash" })
+
+keymap.set({ "o", "x" }, "R", function()
+	flash.treesitter_search()
+end, { desc = "Treesitter Search" })
+
+keymap.set("c", "c-s", function()
+	flash.toggle()
+end, { desc = "Toggle Flash Search" })
+
 -- window management
 local split_bindings = {
 	name = "Split management",
 	v = { "<C-w>v", "Split window vertically" },
 	h = { "<C-w>s", "Split window horizontally" },
-	e = { "<C-w>=", "Make splits equal size" },
+	e = { ":wincmd =<CR>", "Make splits equal size" },
 	x = { "<cmd>close<CR>", "Close current split" },
+	m = { "<cmd>MaximizerToggle<CR>", "Maximize/minimize a split window" },
 }
-split_bindings["="] = { "<C-w>=", "Make splits equal size" }
+split_bindings["="] = { ":wincmd =<CR>", "Make splits equal size" }
 wk.register({ s = split_bindings }, { prefix = "<leader>" })
 
 -- Tab management
@@ -121,3 +147,83 @@ wk.register({
 		},
 	},
 }, { prefix = "<leader>" })
+
+-- Formatting
+wk.register({
+	l = {
+		name = "Linting",
+	},
+}, { prefix = "<leader>" })
+
+vim.keymap.set({ "n", "v" }, "<leader>lf", function()
+	require("conform").format({
+		lsp_fallback = true,
+		async = false,
+		timeout_ms = 1000,
+	})
+end, { desc = "Format file or range (in visual mode)" })
+
+local lint = require("lint")
+vim.keymap.set("n", "<leader>ll", function()
+	lint.try_lint()
+end, { desc = "Trigger linting for current file" })
+
+vim.keymap.set("n", "<leader>ls", function()
+	local lint_progress = function()
+		local linters = require("lint").get_running()
+		if #linters == 0 then
+			return "󰦕"
+		end
+		return "󱉶 " .. table.concat(linters, ", ")
+	end
+	lint_progress()
+end, { desc = "Show linters runnings" })
+
+-- Nvim tree
+wk.register({
+	e = {
+		name = "File tree explorer",
+		e = { "<cmd>NvimTreeToggle<CR>", "Toggle file explorer" },
+		f = { "<cmd>NvimTreeFindFileToggle<CR>", "Toggle file explorer on current file" },
+		c = { "<cmd>NvimTreeCollapse<CR>", "Collapse file explorer" },
+		r = { "<cmd>NvimTreeRefresh<CR>", "Refresh file explorer" },
+	},
+}, { prefix = "<leader>" })
+
+-- ¹ is opt+1
+keymap.set("n", "¹", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
+keymap.set("n", "<a-1>", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
+
+-- smart open
+keymap.set("n", "<C-n>", function()
+	require("telescope").extensions.smart_open.smart_open()
+end, { noremap = true, silent = true })
+
+-- Zen mode
+keymap.set("n", "<leader>z", function()
+	require("zen-mode").toggle({
+		window = {
+			width = 0.85, -- width will be 85% of the editor width
+		},
+	})
+end, { desc = "Toggle zenmode" }) --  move current buffer to new tab
+
+-- telescope
+wk.register({
+	f = {
+		name = "Telescope find files/symbols/strings",
+		f = { "<cmd>Telescope find_files hidden=true <cr>", "Fuzzy find files in cwd" },
+		r = { "<cmd>Telescope oldfiles<cr>", "Fuzzy find recent files" },
+		s = { "<cmd>Telescope live_grep<cr>", "Find string in cwd" },
+		c = { "<cmd>Telescope grep_string<cr>", "Find string under cursor in cwd" },
+	},
+}, { prefix = "<leader>" })
+-- <F36> = CTRL+F12
+keymap.set("n", "<F36>", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "Find symbols in document" })
+keymap.set("n", "<C-F12>", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "Find symbols in document" })
+
+-- <F47> = CTRL+Shift+F12
+keymap.set("n", "<F48>", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", { desc = "Find symbols in workspace" })
+keymap.set("n", "<C-S-F12", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", { desc = "Find symbols in workspace" })
+
+keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "Show buffer diagnostics" }) -- show  diagnostics for file
