@@ -33,7 +33,7 @@ return {
 				"tailwindcss",
 				"svelte",
 				"lua_ls",
-				"graphql",
+				"gopls",
 				"emmet_ls",
 				"prismals",
 				"pyright",
@@ -47,6 +47,7 @@ return {
 				"isort", -- python formatter
 				"black", -- python formatter
 				"ruff", -- python linter
+				"golangci-lint", -- go linter
 			},
 		})
 	end,
