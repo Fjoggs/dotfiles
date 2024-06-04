@@ -13,9 +13,6 @@ keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Go half a page down and center the screen" })
 keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Go half a page up and center the screen" })
 
--- auto-save.nvim
-keymap.set("n", "<leader>as", ":ASToggle<CR>", { desc = "Toggles auto save function" })
-
 -- save with ctrl+s
 keymap.set({ "n", "i" }, "<C-s>", "<esc>:write<CR>", { desc = "Save current buffer" })
 

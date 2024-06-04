@@ -547,6 +547,8 @@ bindsym --release Print exec flameshot full -c
 bindsym Mod1+Sys_Req exec flameshot screen -r -c
 bindsym --release Shift+Print exec flameshot gui
 
+bindsym --release Shift+Next exec flameshot gui
+
 bindsym --release control+Print exec flameshot full -p ~/pictures/printscreens
 # https://github.com/i3/i3/issues/2068
 bindsym --release control+Mod1+Print exec flameshot screen -r -p ~/pictures/printscreens
@@ -554,3 +556,4 @@ bindsym --release control+Shift+Print exec flameshot gui
 
 exec ~/.screenlayout/arandr.sh
 exec --no-startup-id polybar -r 
+
