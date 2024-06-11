@@ -43,3 +43,5 @@
 	enabled = true
 [maintenance]
 	repo = /Users/fjogen/projects/dnb/portal-backend
+[merge]
+	tool = nvimdiff

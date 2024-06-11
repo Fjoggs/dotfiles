@@ -14,7 +14,8 @@ keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Go half a page down and center the
 keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Go half a page up and center the screen" })
 
 -- save with ctrl+s
-keymap.set({ "n", "i" }, "<C-s>", "<esc>:write<CR>", { desc = "Save current buffer" })
+-- keymap.set({ "n", "i" }, "<C-s>", "<esc>:write<CR>", { desc = "Save current buffer" })
+keymap.set({ "n", "i" }, "<C-s>", "<esc>:wa<CR>", { desc = "Save all buffers" })
 
 -- flash
 local flash = require("flash")
