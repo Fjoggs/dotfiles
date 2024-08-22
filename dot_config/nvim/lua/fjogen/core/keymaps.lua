@@ -40,46 +40,38 @@ keymap.set("c", "c-s", function()
 end, { desc = "Toggle Flash Search" })
 
 -- window management
-local split_bindings = {
-	name = "Split management",
-	v = { "<C-w>v", "Split window vertically" },
-	h = { "<C-w>s", "Split window horizontally" },
-	e = { ":wincmd =<CR>", "Make splits equal size" },
-	x = { "<cmd>close<CR>", "Close current split" },
-	m = { "<cmd>MaximizerToggle<CR>", "Maximize/minimize a split window" },
-}
-split_bindings["="] = { ":wincmd =<CR>", "Make splits equal size" }
-wk.register({ s = split_bindings }, { prefix = "<leader>" })
+wk.add({
+	{ "<leader>s", group = "Split management" },
+	{ "<leader>se", ":wincmd =<CR>", desc = "Make splits equal size" },
+	{ "<leader>sh", "<C-w>s", desc = "Split window horizontally" },
+	{ "<leader>sm", "<cmd>MaximizerToggle<CR>", desc = "Maximize/minimize a split window" },
+	{ "<leader>sv", "<C-w>v", desc = "Split window vertically" },
+	{ "<leader>sx", "<cmd>close<CR>", desc = "Close current split" },
+})
 
 -- Tab management
-wk.register({
-	t = {
-		name = "Tab management",
-		o = { "<cmd>tabnew<CR>", "Open new tab" },
-		x = { "<cmd>tabclose<CR>", "Close current tab" },
-		n = { "<cmd>tabn<CR>", "Close current tab" },
-		p = { "<cmd>tabp<CR>", "Go to previous tab" },
-		f = { "<cmd>tabnew $<CR>", "Open current buffer in new tab" },
-	},
-}, { prefix = "<leader>" })
+wk.add({
+	{ "<leader>t", group = "Tab management" },
+	{ "<leader>tf", "<cmd>tabnew $<CR>", desc = "Open current buffer in new tab" },
+	{ "<leader>tn", "<cmd>tabn<CR>", desc = "Close current tab" },
+	{ "<leader>to", "<cmd>tabnew<CR>", desc = "Open new tab" },
+	{ "<leader>tp", "<cmd>tabp<CR>", desc = "Go to previous tab" },
+	{ "<leader>tx", "<cmd>tabclose<CR>", desc = "Close current tab" },
+})
 
 -- Git management
-wk.register({
-	g = {
-		name = "Git management",
-		n = { ":Neogit<CR>", "Open NeoGit integration" },
-		d = { ":Telescope git_bcommits<CR>", "Open git history for active buffer" },
-	},
-}, { prefix = "<leader>" })
+wk.add({
+	{ "<leader>g", group = "Git management" },
+	{ "<leader>gd", ":Telescope git_bcommits<CR>", desc = "Open git history for active buffer" },
+	{ "<leader>gn", ":Neogit<CR>", desc = "Open NeoGit integration" },
+})
 
 -- Session management
-wk.register({
-	w = {
-		name = "Sessions management",
-		r = { "<cmd>SessionRestore<CR>", "Restore session for cwd" },
-		s = { "<cmd>SessionSave<CR>", "Save session for cwd" },
-	},
-}, { prefix = "<leader>" })
+wk.add({
+	{ "<leader>w", group = "Session management" },
+	{ "<leader>wr", "<cmd>SessionRestore<CR>", desc = "Restore session for cwd" },
+	{ "<leader>ws", "<cmd>SessionSave<CR>", desc = "Save session for cwd" },
+})
 
 -- Debugger
 
@@ -108,50 +100,50 @@ keymap.set("n", "<Leader>lp", function()
 	dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
 end)
 
-wk.register({
-	d = {
-		name = "Debugger",
-		r = { ":DapToggleRepl<CR>", "Toggles the DAP repl" },
-		l = {
-			function()
-				dap.run_last()
-			end,
-			"Run last DAP",
-		},
-		h = {
-			function()
-				dap_ui_widgets.hover()
-			end,
-			"Show DAP hover widget",
-		},
-		p = {
-			function()
-				dap_ui_widgets.preview()
-			end,
-			"Show DAP preview widget",
-		},
-		f = {
-			function()
-				dap_ui_widgets.centered_float(dap_ui_widgets.frames)
-			end,
-			"Centered float DAP frames",
-		},
-		s = {
-			function()
-				local widgets = dap_ui_widgets
-				widgets.centered_float(widgets.scopes)
-			end,
-			"Centered float DAP scopes",
-		},
+wk.add({
+	{ "<leader>d", group = "Debugger" },
+	{
+		"<leader>df",
+		function()
+			dap_ui_widgets.centered_float(dap_ui_widgets.frames)
+		end,
+		desc = "Centered float DAP frames",
 	},
-}, { prefix = "<leader>" })
+	{
+		"<leader>dh",
+		function()
+			dap_ui_widgets.hover()
+		end,
+		desc = "Show DAP hover widget",
+	},
+	{
+		"<leader>dl",
+		function()
+			dap.run_last()
+		end,
+		desc = "Run last DAP",
+	},
+	{
+		"<leader>dp",
+		function()
+			dap_ui_widgets.preview()
+		end,
+		desc = "Show DAP preview widget",
+	},
+	{ "<leader>dr", ":DapToggleRepl<CR>", desc = "Toggles the DAP repl" },
+	{
+		"<leader>ds",
+		function()
+			dap_ui_widgets.centered_float(dap_ui_widgets.scopes)
+		end,
+		desc = "Centered float DAP scopes",
+	},
+})
 
 -- Formatting
-wk.register({
-	l = {
-		name = "Linting",
-	},
-}, { prefix = "<leader>" })
+wk.add({
+	{ "<leader>l", group = "Linting" },
+})
 
 vim.keymap.set({ "n", "v" }, "<leader>lf", function()
 	require("conform").format({
@@ -178,15 +170,13 @@ vim.keymap.set("n", "<leader>ls", function()
 end, { desc = "Show linters runnings" })
 
 -- Nvim tree
-wk.register({
-	e = {
-		name = "File tree explorer",
-		e = { "<cmd>NvimTreeToggle<CR>", "Toggle file explorer" },
-		f = { "<cmd>NvimTreeFindFileToggle<CR>", "Toggle file explorer on current file" },
-		c = { "<cmd>NvimTreeCollapse<CR>", "Collapse file explorer" },
-		r = { "<cmd>NvimTreeRefresh<CR>", "Refresh file explorer" },
-	},
-}, { prefix = "<leader>" })
+wk.add({
+	{ "<leader>e", group = "File tree explorer" },
+	{ "<leader>ec", "<cmd>NvimTreeCollapse<CR>", desc = "Collapse file explorer" },
+	{ "<leader>ee", "<cmd>NvimTreeToggle<CR>", desc = "Toggle file explorer" },
+	{ "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", desc = "Toggle file explorer on current file" },
+	{ "<leader>er", "<cmd>NvimTreeRefresh<CR>", desc = "Refresh file explorer" },
+})
 
 -- ¹ is opt+1
 keymap.set("n", "¹", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
@@ -207,15 +197,14 @@ keymap.set("n", "<leader>z", function()
 end, { desc = "Toggle zenmode" }) --  move current buffer to new tab
 
 -- telescope
-wk.register({
-	f = {
-		name = "Telescope find files/symbols/strings",
-		f = { "<cmd>Telescope find_files hidden=true <cr>", "Fuzzy find files in cwd" },
-		r = { "<cmd>Telescope oldfiles<cr>", "Fuzzy find recent files" },
-		s = { "<cmd>Telescope live_grep<cr>", "Find string in cwd" },
-		c = { "<cmd>Telescope grep_string<cr>", "Find string under cursor in cwd" },
-	},
-}, { prefix = "<leader>" })
+wk.add({
+	{ "<leader>f", group = "Telescope find files/symbols/strings" },
+	{ "<leader>fc", "<cmd>Telescope grep_string<cr>", desc = "Find string under cursor in cwd" },
+	{ "<leader>ff", "<cmd>Telescope find_files hidden=true <cr>", desc = "Fuzzy find files in cwd" },
+	{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Fuzzy find recent files" },
+	{ "<leader>fs", "<cmd>Telescope live_grep<cr>", desc = "Find string in cwd" },
+})
+
 -- <F36> = CTRL+F12
 keymap.set("n", "<F36>", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "Find symbols in document" })
 keymap.set("n", "<C-F12>", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "Find symbols in document" })
