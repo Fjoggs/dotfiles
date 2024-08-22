@@ -216,14 +216,12 @@ keymap.set("n", "<C-S-F12", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", 
 keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "Show buffer diagnostics" }) -- show  diagnostics for file
 
 --- Refactor
-wk.register({
-	r = {
-		name = "Refactor",
-		e = { ":Refactor extract", "Extract code to function" },
-		f = { ":Refactor extract_to_file ", "Extract code to file" },
-		v = { ":Refactor extract_var", "Extract value to variable" },
-		n = { ":Refactor inline_var", "Inline variable to value" },
-		i = { ":Refactor inline_func", "Inline function" },
-		b = { ":Refactor extract_block", "Extract block" },
-	},
-}, { prefix = "<leader>" })
+wk.add({
+	{ "<leader>r", group = "Refactor" },
+	{ "<leader>rb", ":Refactor extract_block", desc = "Extract block" },
+	{ "<leader>re", ":Refactor extract", desc = "Extract code to function" },
+	{ "<leader>rf", ":Refactor extract_to_file ", desc = "Extract code to file" },
+	{ "<leader>ri", ":Refactor inline_func", desc = "Inline function" },
+	{ "<leader>rn", ":Refactor inline_var", desc = "Inline variable to value" },
+	{ "<leader>rv", ":Refactor extract_var", desc = "Extract value to variable" },
+})
