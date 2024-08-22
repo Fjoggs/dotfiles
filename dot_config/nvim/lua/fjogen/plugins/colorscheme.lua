@@ -1,19 +1,19 @@
+-- return {
+-- 	"folke/tokyonight.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		vim.cmd("colorscheme tokyonight")
+-- 		-- vim.cmd("colorscheme tokyonight-day")
+-- 	end,
+-- }
 return {
-	"folke/tokyonight.nvim",
+	"marko-cerovac/material.nvim",
 	priority = 1000,
 	config = function()
-		vim.cmd("colorscheme tokyonight")
-		-- vim.cmd("colorscheme tokyonight-day")
+		vim.g.material_style = "oceanic"
+		vim.cmd("colorscheme material")
 	end,
 }
---return {
---	"marko-cerovac/material.nvim",
---	priority = 1000,
---	config = function()
---		vim.g.material_style = "oceanic"
---		vim.cmd("colorscheme material")
---	end,
---}
 -- return {
 -- 	"navarasu/onedark.nvim",
 -- 	priority = 1000,

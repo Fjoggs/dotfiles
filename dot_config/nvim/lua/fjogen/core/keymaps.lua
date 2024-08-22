@@ -225,3 +225,16 @@ keymap.set("n", "<F48>", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", { d
 keymap.set("n", "<C-S-F12", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", { desc = "Find symbols in workspace" })
 
 keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "Show buffer diagnostics" }) -- show  diagnostics for file
+
+--- Refactor
+wk.register({
+	r = {
+		name = "Refactor",
+		e = { ":Refactor extract", "Extract code to function" },
+		f = { ":Refactor extract_to_file ", "Extract code to file" },
+		v = { ":Refactor extract_var", "Extract value to variable" },
+		n = { ":Refactor inline_var", "Inline variable to value" },
+		i = { ":Refactor inline_func", "Inline function" },
+		b = { ":Refactor extract_block", "Extract block" },
+	},
+}, { prefix = "<leader>" })
