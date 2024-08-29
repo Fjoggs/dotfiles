@@ -4,6 +4,12 @@ local keymap = vim.keymap
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
+-- navigate with ctrl+h,j,k,l
+keymap.set("n", "<C-h>", ":wincmd h<CR>", { silent = true })
+keymap.set("n", "<C-j>", ":wincmd j<CR>", { silent = true })
+keymap.set("n", "<C-k>", ":wincmd k<CR>", { silent = true })
+keymap.set("n", "<C-l>", ":wincmd l<CR>", { silent = true })
+
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
