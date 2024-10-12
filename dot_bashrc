@@ -190,3 +190,4 @@ export NVM_DIR="$HOME/.nvm"
 
 export EDITOR=nvim
 
+. "$HOME/.cargo/env"

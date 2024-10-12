@@ -222,6 +222,7 @@ keymap.set("n", "<C-S-F12", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", 
 keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "Show buffer diagnostics" }) -- show  diagnostics for file
 
 --- Refactor
+<<<<<<< HEAD
 wk.add({
 	{ "<leader>r", group = "Refactor" },
 	{ "<leader>rb", ":Refactor extract_block", desc = "Extract block" },
@@ -231,9 +232,23 @@ wk.add({
 	{ "<leader>rn", ":Refactor inline_var", desc = "Inline variable to value" },
 	{ "<leader>rv", ":Refactor extract_var", desc = "Extract value to variable" },
 })
+=======
+wk.register({
+	r = {
+		name = "Refactor",
+		e = { ":Refactor extract", "Extract code to function" },
+		f = { ":Refactor extract_to_file ", "Extract code to file" },
+		v = { ":Refactor extract_var", "Extract value to variable" },
+		n = { ":Refactor inline_var", "Inline variable to value" },
+		i = { ":Refactor inline_func", "Inline function" },
+		b = { ":Refactor extract_block", "Extract block" },
+	},
+}, { prefix = "<leader>" })
+
 
 -- substitute
 vim.keymap.set("n", "s", require("substitute").operator, { noremap = true })
 vim.keymap.set("n", "ss", require("substitute").line, { noremap = true })
 vim.keymap.set("n", "S", require("substitute").eol, { noremap = true })
 vim.keymap.set("x", "s", require("substitute").visual, { noremap = true })
+>>>>>>> 61991db (Add cargo and substiute plugin keybinds)
