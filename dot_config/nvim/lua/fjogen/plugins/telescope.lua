@@ -13,15 +13,22 @@ return {
 		telescope.setup({
 			defaults = {
 				path_display = { "smart" },
+				-- old ripgrep arguments; a lot of them seem unnecessary
+				-- vimgrep_arguments = {
+				-- 	"rg",
+				-- 	"--color=never",
+				-- 	"--no-heading",
+				-- 	"--with-filename",
+				-- 	"--line-number",
+				-- 	"--column",
+				-- 	"--smart-case",
+				-- 	"--hidden",
+				-- },
 				vimgrep_arguments = {
 					"rg",
-					"--color=never",
 					"--no-heading",
-					"--with-filename",
-					"--line-number",
 					"--column",
 					"--smart-case",
-					"--hidden",
 				},
 				mappings = {
 					i = {
