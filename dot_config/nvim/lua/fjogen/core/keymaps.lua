@@ -4,6 +4,9 @@ local keymap = vim.keymap
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
+-- replace clg with console.log
+keymap.set("i", "clg", "<ESC>:i<CR>console.log('')<CR><BS><ESC>ci'")
+
 -- navigate with ctrl+h,j,k,l
 keymap.set("n", "<C-h>", ":wincmd h<CR>", { silent = true })
 keymap.set("n", "<C-j>", ":wincmd j<CR>", { silent = true })
@@ -237,3 +240,7 @@ vim.keymap.set("n", "s", require("substitute").operator, { noremap = true })
 vim.keymap.set("n", "ss", require("substitute").line, { noremap = true })
 vim.keymap.set("n", "S", require("substitute").eol, { noremap = true })
 vim.keymap.set("x", "s", require("substitute").visual, { noremap = true })
+
+wk.add({
+	{ "<leader>h", ":lua vim.diagnostic.open_float()<cr>", desc = "Show diagnostic under line in floating window" },
+})
