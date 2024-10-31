@@ -348,7 +348,8 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 #exec --no-startup-id sleep 1 && feh --bg-fill ~/pictures/bgs/wallhaven-pk9989.jpg
 #exec --no-startup-id sleep 1 && feh --bg-fill ~/pictures/bgs/firewatch.png
 #exec --no-startup-id sleep 1 && feh --bg-fill ~/pictures/bgs/wallhaven-l318qr.png 
-exec --no-startup-id sleep 1 && feh --bg-fill ~/pictures/bgs/wallhaven-x69wyo.png
+# exec --no-startup-id sleep 1 && feh --bg-fill ~/pictures/bgs/wallhaven-x69wyo.png
+exec --no-startup-id sleep 1 && feh --bg-fill ~/pictures/bgs/wallhaven-85pej2.png
 #exec --no-startup-id sleep 1 && feh --bg-fill ~/pictures/bgs/flow4.jpg
 #exec --no-startup-id sleep 1 && feh --bg-fill ~/pictures/bgs/Shift-5.jpg
 
