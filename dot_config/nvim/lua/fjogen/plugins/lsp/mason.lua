@@ -48,6 +48,9 @@ return {
 				"black", -- python formatter
 				"ruff", -- python linter
 				"golangci-lint", -- go linter
+				"gofumpt",
+				"goimports-reviser",
+				"golines",
 			},
 		})
 	end,
