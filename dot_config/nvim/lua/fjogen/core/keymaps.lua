@@ -223,6 +223,7 @@ keymap.set("n", "<C-F12>", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "
 keymap.set("n", "<F48>", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", { desc = "Find symbols in workspace" })
 keymap.set("n", "<C-S-F12", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", { desc = "Find symbols in workspace" })
 
+-- Diagnostics
 keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "Show buffer diagnostics" }) -- show  diagnostics for file
 
 --- Refactor

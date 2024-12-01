@@ -23,6 +23,9 @@
 -- 	end,
 -- }
 return {
+	{ "sainnhe/edge" },
+	{ "marko-cerovac/material.nvim" },
+	{ "folke/tokyonight.nvim" },
 	"navarasu/onedark.nvim",
 	priority = 1000,
 	config = function()
