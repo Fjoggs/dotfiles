@@ -31,9 +31,12 @@
 -- 	end,
 -- }
 return {
-	{ "sainnhe/edge" },
-	{ "marko-cerovac/material.nvim" },
-	{ "folke/tokyonight.nvim" },
+	dependencies = {
+		"hrsh7th/nvim-cmp",
+		"sainnhe/edge",
+		"marko-cerovac/material.nvim",
+		"navarasu/onedark.nvim",
+	},
 	"navarasu/onedark.nvim",
 	priority = 1000,
 	config = function()
