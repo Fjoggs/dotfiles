@@ -22,6 +22,14 @@
 -- 		vim.cmd("colorscheme edge")
 -- 	end,
 -- }
+-- lua/plugins/rose-pine.lua
+-- return {
+-- 	"rose-pine/neovim",
+-- 	name = "rose-pine",
+-- 	config = function()
+-- 		vim.cmd("colorscheme rose-pine-dawn")
+-- 	end,
+-- }
 return {
 	{ "sainnhe/edge" },
 	{ "marko-cerovac/material.nvim" },

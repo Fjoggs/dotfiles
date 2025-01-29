@@ -5,9 +5,9 @@ return {
 
 		auto_session.setup({
 			log_level = "error",
-			auto_save_enabled = false,
-			auto_restore_enabled = false,
-			auto_session_suppress_dirs = {
+			auto_save = false,
+			auto_restore = false,
+			suppressed_dirs = {
 				"~/",
 				"~/Downloads",
 				"~/Documents",

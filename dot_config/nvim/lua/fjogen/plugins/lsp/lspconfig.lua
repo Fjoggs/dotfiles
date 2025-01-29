@@ -41,6 +41,7 @@ return {
 				keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
 				-- F18 = Shift + F6
 				keymap.set("n", "<F18>", vim.lsp.buf.rename, opts) -- smart rename
+				keymap.set("n", "<S-F6>", vim.lsp.buf.rename, opts) -- smart rename
 
 				opts.desc = "Show buffer diagnostics"
 				keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
